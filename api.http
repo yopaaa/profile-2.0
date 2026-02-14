@@ -1,0 +1,8 @@
+// test post message api route
+POST http://quiz.yopaaa.xyz/api/msg
+Content-Type: application/json
+
+  {
+    "name": "John Doe",
+    "msg": "Hello, this is a test message!"
+  }
