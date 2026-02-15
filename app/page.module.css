@@ -1,0 +1,88 @@
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-image: url("/images/yopa.jpeg"); */
+  /* backdrop-filter: blur(8px); */
+  background: rgba(58, 58, 58, 0.8);
+  /* backdrop-filter: blur(8px); */
+}
+
+.card {
+  width: 900px;
+  height: 500px;
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.left {
+  flex: 1;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.name {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.desc {
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.button {
+  width: fit-content;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+  background: #1f7a5c;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 25px;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background: #145c43;
+}
+
+.social {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  font-size: 14px;
+  color: #333;
+}
+
+.right {
+  flex: 1;
+  position: relative;
+  transform: scale(1.01);
+  /* border-radius: 25px; */
+    overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+  
+}
