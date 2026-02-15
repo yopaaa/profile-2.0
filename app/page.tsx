@@ -3,12 +3,23 @@ import Image from "next/image";
 import { getUsers } from "@/utils/getUsersInfo";
 
 export default async function Home() {
-    const data = await getUsers();
+  const data = await getUsers();
 
   return (
     <div className={styles.container}>
       <div className={styles.card}>
+          <div className={styles.profile2}>
+            <Image
+              src="/images/yopa.jpeg"
+              alt="Profile"
+              // fill
+              width={200}
+              height={200}
+              className={styles.image}
+            />
+          </div>
         <div className={styles.left}>
+
           <h1 className={styles.name}>Yopa pitra ramadhani</h1>
 
           <div className={styles.meta}>
@@ -38,7 +49,7 @@ export default async function Home() {
                 />
               </a>
             </span>
-              <span>
+            <span>
               <a href="http://">
                 <Image
                   src="/icon/linkedin.png"
@@ -48,7 +59,8 @@ export default async function Home() {
                   // className={styles.image}
                 />
               </a>
-            </span>  <span>
+            </span>{" "}
+            <span>
               <a href="http://">
                 <Image
                   src="/icon/email.png"
@@ -58,7 +70,8 @@ export default async function Home() {
                   // className={styles.image}
                 />
               </a>
-            </span>  <span>
+            </span>{" "}
+            <span>
               <a href="http://">
                 <Image
                   src="/icon/instagram.png"
@@ -68,7 +81,8 @@ export default async function Home() {
                   // className={styles.image}
                 />
               </a>
-            </span>  <span>
+            </span>{" "}
+            <span>
               <a href="http://">
                 <Image
                   src="/icon/twitter.png"
