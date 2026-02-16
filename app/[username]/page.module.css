@@ -1,11 +1,13 @@
 .container {
   height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* background-color: red; */
   /* background-image: url("/images/yopa.jpeg"); */
   /* background: rgba(58, 58, 58, 0.8); */
-  /* backdrop-filter: blur(8px); */
+  backdrop-filter: blur(8px);
   /* backdrop-filter: blur(8px); */
 }
 
@@ -79,7 +81,7 @@
   flex: 1;
   position: relative;
   transform: scale(1.01);
-  /* border-radius: 25px; */
+  border-radius: 5px;
     overflow: hidden;
 }
 

@@ -1,9 +1,23 @@
 import styles from "./page.module.css";
 import Image from "next/image";
 import { getUsers } from "@/utils/getUsersInfo";
+import { notFound } from "next/navigation";
 
-export default async function Home() {
+const users = [
+  { "username": "yopa", "name": "Yopa Pitra" },
+  { "username": "linus", "name": "Linus Dev" }
+]
+
+
+export default async function Home({ params }) {
   const data = await getUsers();
+  const { username } = await params;
+
+  const user = users.find(u => u.username === username);
+
+  if (!user) {
+    notFound();
+  }
 
   return (
     <div className={styles.container}>

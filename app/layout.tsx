@@ -24,8 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-      style={{backgroundImage: `url(/images/yopa.jpeg)`}}
+      <body 
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
