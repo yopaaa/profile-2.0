@@ -24,7 +24,7 @@ hello@yopaaa.dev`,
     title: "Kontak",
     links: [
       { name: "hello@yopaaa.dev", href: "mailto:hello@yopaaa.dev" },
-      { name: "Jadwalkan Meeting", href: "https://cal.com/rizkypratama", target: "_blank", rel: "noreferrer" },
+      { name: "Jadwalkan Meeting", href: "https://cal.com/yopa", target: "_blank", rel: "noreferrer" },
       { name: "Download CV", href: "#", download: "CV.pdf" }, // Tambahkan atribut download jika perlu
     ],
   },

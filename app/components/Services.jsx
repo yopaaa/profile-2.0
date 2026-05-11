@@ -9,14 +9,14 @@ const data = {
       icon: "⚡",
       name: "KATALIS",
       desc: "URL shortener dengan analitik real-time.",
-      url: "katalis.rizkypratama.dev",
+      url: "katalis.yopa.dev",
     },
     {
       id: "c2",
       icon: "🧾",
       name: "KASIR",
       desc: "Sistem kasir berbasis web untuk UMKM.",
-      url: "kasir.rizkypratama.dev",
+      url: "kasir.yopa.dev",
     },
   ],
 };

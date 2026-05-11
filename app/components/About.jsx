@@ -20,7 +20,7 @@ const data = {
     { num: "12", label: "Artikel Ditulis" },
   ],
   description:
-    "Halo! Saya Rizky — seorang full-stack developer berbasis di Batam yang passionate dalam membangun produk digital...",
+    "Halo! Saya Yopa— seorang full-stack developer berbasis di Batam yang passionate dalam membangun produk digital...",
 };
 
 
