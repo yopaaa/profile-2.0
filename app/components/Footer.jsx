@@ -11,7 +11,10 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.inner}>
         <div className={styles.left}>
-          <span className={styles.logo}>yopa</span>
+          <span className={styles.logo}>
+            <span className={styles.logoDot} />
+            yopa
+          </span>
           <p className={styles.tagline}>
             Building things for the web.<br />
             Bangka, Indonesia · hello@yopaaa.dev
@@ -20,8 +23,8 @@ export default function Footer() {
 
         <div className={styles.links}>
           <a href="#about" className={styles.link}>About</a>
-          <a href="#articles" className={styles.link}>Writing</a>
-          <a href="#services" className={styles.link}>Work</a>
+          <a href="#experience" className={styles.link}>Experience</a>
+          <a href="#services" className={styles.link}>Portfolio</a>
           <a href="mailto:hello@yopaaa.dev" className={styles.link}>Contact</a>
         </div>
       </div>

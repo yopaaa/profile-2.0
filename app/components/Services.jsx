@@ -2,26 +2,29 @@
 
 import { useEffect, useRef } from "react";
 import { animate, stagger } from "animejs";
+import Image from "next/image";
 import styles from "./styles/Services.module.css";
 
 const projects = [
   {
     id: "01",
-    icon: "⚡",
+    tag: "Tool",
     name: "Katalis",
     desc: "URL shortener dengan analitik real-time dan dashboard yang clean.",
     url: "katalis.yopa.dev",
     href: "https://katalis.yopa.dev",
-    tag: "Tool",
+    // Taruh file di: public/images/projects/katalis.png
+    image: "/images/projects/katalis.png",
   },
   {
     id: "02",
-    icon: "🧾",
+    tag: "SaaS",
     name: "Kasir",
     desc: "Sistem kasir berbasis web untuk UMKM — cepat, sederhana, offline-first.",
     url: "kasir.yopa.dev",
     href: "https://kasir.yopa.dev",
-    tag: "SaaS",
+    // Taruh file di: public/images/projects/kasir.png
+    image: "/images/projects/kasir.png",
   },
 ];
 
@@ -37,15 +40,15 @@ export default function Services() {
           if (!entry.isIntersecting) return;
           animate(sectionRef.current.querySelectorAll("[data-anim]"), {
             opacity: [0, 1],
-            translateY: [24, 0],
+            translateY: [32, 0],
             ease: "outExpo",
             duration: 800,
-            delay: stagger(120),
+            delay: stagger(140),
           });
           observer.disconnect();
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     );
 
     observer.observe(sectionRef.current);
@@ -55,11 +58,15 @@ export default function Services() {
   return (
     <section id="services" ref={sectionRef} className={styles.services}>
       <div className={styles.inner}>
+
+        {/* Header */}
         <div className={styles.header} data-anim>
-          <span className={styles.label}>Work</span>
+          <span className={styles.label}>Portfolio</span>
           <div className={styles.headerLine} />
+          <span className={styles.count}>{projects.length} projects</span>
         </div>
 
+        {/* Grid */}
         <div className={styles.grid}>
           {projects.map((p) => (
             <a
@@ -70,20 +77,41 @@ export default function Services() {
               className={styles.card}
               data-anim
             >
-              <div className={styles.cardTop}>
-                <span className={styles.cardId}>{p.id}</span>
+              {/* Image Preview */}
+              <div className={styles.imageWrap}>
+                <Image
+                  src={p.image}
+                  alt={`${p.name} preview`}
+                  fill
+                  className={styles.image}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  // Fallback jika image belum ada
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                  }}
+                />
+                {/* Overlay gradient */}
+                <div className={styles.imageOverlay} />
+                {/* Tag di atas image */}
                 <span className={styles.cardTag}>{p.tag}</span>
               </div>
-              <div className={styles.cardIcon}>{p.icon}</div>
-              <h3 className={styles.cardName}>{p.name}</h3>
-              <p className={styles.cardDesc}>{p.desc}</p>
-              <div className={styles.cardFooter}>
-                <span className={styles.cardUrl}>{p.url}</span>
-                <span className={styles.cardArrow}>↗</span>
+
+              {/* Card Body */}
+              <div className={styles.cardBody}>
+                <div className={styles.cardTop}>
+                  <span className={styles.cardId}>{p.id}</span>
+                  <h3 className={styles.cardName}>{p.name}</h3>
+                </div>
+                <p className={styles.cardDesc}>{p.desc}</p>
+                <div className={styles.cardFooter}>
+                  <span className={styles.cardUrl}>{p.url}</span>
+                  <span className={styles.cardArrow}>↗</span>
+                </div>
               </div>
             </a>
           ))}
         </div>
+
       </div>
     </section>
   );

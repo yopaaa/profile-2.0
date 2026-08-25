@@ -8,7 +8,7 @@ const stats = [
   { num: "4+", label: "Years exp.", count: 4, plus: true },
   { num: "32", label: "Projects", count: 32, plus: false },
   { num: "18", label: "Clients", count: 18, plus: false },
-  { num: "12", label: "Articles", count: 12, plus: false },
+  { num: "99%", label: "Satisfaction", count: 99, plus: false },
 ];
 
 const skills = ["React.js", "Next.js", "Node.js", "TypeScript", "PostgreSQL", "Tailwind CSS", "Docker", "Figma"];

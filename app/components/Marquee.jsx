@@ -1,15 +1,27 @@
 import styles from './styles/Marquee.module.css';
 
-const items = ["React", "Next.js", "Node.js", "TypeScript", "Figma", "PostgreSQL", "Docker", "Tailwind"];
+const items = [
+  "React",
+  "Next.js",
+  "Node.js",
+  "TypeScript",
+  "Figma",
+  "PostgreSQL",
+  "Docker",
+  "Tailwind CSS",
+];
 
 export default function Marquee() {
+  // Triple the items so the loop is seamless
+  const repeated = [...items, ...items, ...items];
+
   return (
     <div className={styles.strip}>
       <div className={styles.track}>
-        {[...items, ...items, ...items].map((item, idx) => (
+        {repeated.map((item, idx) => (
           <span key={idx} className={styles.item}>
-            {item}
-            <span className={styles.sep}>·</span>
+            <span>{item}</span>
+            <span className={styles.sep} aria-hidden="true">✦</span>
           </span>
         ))}
       </div>
