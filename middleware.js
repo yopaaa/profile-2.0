@@ -7,7 +7,7 @@ export async function middleware(req) {
   const token = req.cookies.get('token')?.value;
 
   if (!token) {
-    return NextResponse.redirect(new URL('/auth/login', req.url));
+    return NextResponse.redirect(new URL('/login', req.url));
   }
 
   try {
@@ -15,13 +15,13 @@ export async function middleware(req) {
 
     // Proteksi role
     if (req.nextUrl.pathname.startsWith('/admin') && payload.role !== 'admin') {
-      return NextResponse.redirect(new URL('/auth/login', req.url));
+      return NextResponse.redirect(new URL('/login', req.url));
     }
 
     return NextResponse.next();
   } catch (err) {
     console.error('JWT error:', err.message);
-    return NextResponse.redirect(new URL('/auth/login', req.url));
+    return NextResponse.redirect(new URL('/login', req.url));
   }
 }
 

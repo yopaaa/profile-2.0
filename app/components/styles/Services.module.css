@@ -1,69 +1,160 @@
 .services {
-  background: var(--yellow);
-  padding: 100px 40px;
+  padding: 120px 48px;
+  border-top: 1px solid rgba(255,255,255,0.06);
 }
 
-.servicesGridContainer {
+.inner {
+  max-width: 720px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 56px;
+  opacity: 0;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #444;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.headerLine {
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+/* Card */
+.card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: 50px;
-}
-
-.servicesGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-}
-
-.serviceCard {
-  background: var(--white);
-  border: var(--border);
-  box-shadow: var(--shadow);
-  padding: 32px;
+  padding: 28px;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 4px;
   text-decoration: none;
-  color: var(--black);
+  color: inherit;
+  transition: border-color 0.25s, background 0.25s, transform 0.25s;
+  opacity: 0;
+  background: rgba(255,255,255,0.01);
+  cursor: pointer;
   position: relative;
-  transition: all 0.15s;
+  overflow: hidden;
 }
 
-.serviceCard:hover {
-  transform: translate(-4px, -4px);
-  box-shadow: 10px 10px 0px var(--black);
-}
-
-/* Pseudo-element untuk border atas warna-warni */
-.serviceCard::before {
+.card::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 6px;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(232,255,90,0.04), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
-/* Dinamis Class dari JS */
-.c1::before { background: var(--blue); }
-.c2::before { background: var(--pink); }
-.c3::before { background: var(--green); }
-.c4::before { background: var(--orange); }
+.card:hover {
+  border-color: rgba(232, 255, 90, 0.2);
+  background: rgba(255,255,255,0.03);
+  transform: translateY(-2px);
+}
 
-.serviceIcon {
-  width: 54px;
-  height: 54px;
-  border: var(--border);
+.card:hover::before {
+  opacity: 1;
+}
+
+.cardTop {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: 26px;
-  margin-bottom: 18px;
-  background: var(--white);
+  margin-bottom: 24px;
+}
+
+.cardId {
+  font-size: 11px;
+  color: #333;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  font-variant-numeric: tabular-nums;
+}
+
+.cardTag {
+  font-size: 10px;
+  font-weight: 600;
+  color: #555;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid #222;
+  padding: 2px 7px;
+  border-radius: 2px;
+}
+
+.cardIcon {
+  font-size: 28px;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.cardName {
+  font-size: 20px;
+  font-weight: 400;
+  color: #d0d0d0;
+  margin-bottom: 10px;
+  transition: color 0.2s;
+}
+
+.card:hover .cardName {
+  color: #f0f0f0;
+}
+
+.cardDesc {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.65;
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardUrl {
+  font-size: 11px;
+  color: #444;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  letter-spacing: 0.02em;
+}
+
+.cardArrow {
+  font-size: 14px;
+  color: #444;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.card:hover .cardArrow {
+  color: #e8ff5a;
+  transform: translate(2px, -2px);
 }
 
 @media (max-width: 768px) {
-   .services {
-    /* padding: 60px 20px; */
+  .services {
+    padding: 80px 24px;
   }
-   
-  .servicesGrid {
-    grid-template-columns: repeat(1, 1fr);
+
+  .grid {
+    grid-template-columns: 1fr;
   }
 }

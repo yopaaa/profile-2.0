@@ -1,49 +1,92 @@
-import styles from './styles/Hero.module.css';
+"use client";
 
-const data = {
-  name: "Yopa-Pitra R.",
-  title: "Full-stack Developer & UI Designer",
-  location: "Bangka, Indonesia",
-  availability: "Available for work",
-  description: "Full-stack developer & UI designer yang suka membangun produk digital bermakna. Spesialis React, Node.js, dan pengalaman pengguna yang bersih tapi berkarakter.",
-  projectsUrl: "#services",
-  articlesUrl: "#articles",
-  experience: "4+ Years XP",
-  status: "🟢 Open to collab"
-};
+import { useEffect, useRef } from "react";
+import { animate, stagger } from "animejs";
+import styles from "./styles/Hero.module.css";
+
 
 export default function Hero() {
+  const heroRef = useRef(null);
+
+  useEffect(() => {
+    if (!heroRef.current) return;
+
+    const targets = heroRef.current.querySelectorAll("[data-anim]");
+    const line = heroRef.current.querySelector("[data-line]");
+    const dot = heroRef.current.querySelector("[data-dot]");
+
+    // Stagger fade-up
+    animate(targets, {
+      opacity: [0, 1],
+      translateY: [40, 0],
+      ease: "outExpo",
+      duration: 900,
+      delay: stagger(120, { start: 200 }),
+    });
+
+    // Line expand
+    if (line) {
+      animate(line, {
+        width: ["0%", "100%"],
+        ease: "outExpo",
+        duration: 1400,
+        delay: 400,
+      });
+    }
+
+    // Dot pop-in
+    if (dot) {
+      animate(dot, {
+        scale: [0, 1],
+        opacity: [0, 1],
+        ease: "outElastic(1, .6)",
+        duration: 1000,
+        delay: 800,
+      });
+    }
+  }, []);
+
   return (
-    <section id="hero" className={styles.hero}>
-      <div className={styles.heroGrid}>
-        <div className={styles.heroLeft}>
-          <span className={styles.heroTag}>✦ {data.availability} · {data.location}</span>
-          <h1 className={styles.heroName}>
-            {data.name.split('-').map((word, index) => (
-             <span key={index}>
-             <span key={index}>{word}</span> 
-             <br />
-             </span>
-            ))}
-          </h1>
-          <p className={styles.heroDesc}>
-            {data.description}
-          </p>
-          <div className={styles.heroBtns}>
-            <a href={data.projectsUrl} className="btn btn-primary">Lihat Proyek →</a>
-            <a href={data.articlesUrl} className="btn btn-secondary">Baca Artikel</a>
-          </div>
+    <section ref={heroRef} className={styles.hero} id="hero">
+      <div className={styles.inner}>
+        <div className={styles.status} data-anim>
+          <span data-dot className={styles.statusDot} />
+          <span className={styles.statusText}>Available for work</span>
         </div>
-        <div className={styles.heroImageBox}>
-          <div className={`${styles.floatingBadge} ${styles.badgeExp}`}>{data.experience}</div>
-          <div className={styles.heroImgWrapper}>
-            <div className={styles.avatarPlaceholder}>
-              <img src="/images/yopa.jpeg" alt="Avatar" className={styles.heroImage} />
-            </div>
-          </div>
-          <div className={`${styles.floatingBadge} ${styles.badgeStatus}`}>{data.status}</div>
+
+        <div className={styles.nameWrap}>
+          <h1 className={styles.name} data-anim>
+            Yopa<br />
+            <em className={styles.nameAccent}>Pitra R.</em>
+          </h1>
+        </div>
+
+        <div className={styles.divider} data-anim>
+          <span data-line className={styles.dividerLine} />
+        </div>
+
+        <p className={styles.desc} data-anim>
+          Full-stack developer & UI designer yang suka membangun<br />
+          produk digital bermakna — berbasis di Bangka, Indonesia.
+        </p>
+
+        <div className={styles.cta} data-anim>
+          <a href="#services" className={styles.btnPrimary}>
+            Lihat Proyek <span className={styles.arrow}>↗</span>
+          </a>
+          <a href="#articles" className={styles.btnGhost}>
+            Baca Artikel
+          </a>
+        </div>
+
+        <div className={styles.tags} data-anim>
+          {["React", "Next.js", "Node.js", "TypeScript", "PostgreSQL", "Figma"].map((t) => (
+            <span key={t} className={styles.tag}>{t}</span>
+          ))}
         </div>
       </div>
+
+      <div className={styles.bgCircle} />
     </section>
   );
 }

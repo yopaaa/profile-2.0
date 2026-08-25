@@ -1,35 +1,35 @@
-.marqueeStrip {
+.strip {
   overflow: hidden;
-  background: var(--black);
-  border-top: var(--border);
-  border-bottom: var(--border);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
   padding: 14px 0;
 }
 
-.marqueeTrack {
+.track {
   display: flex;
   width: max-content;
-  animation: marquee 20s linear infinite;
+  animation: marquee 28s linear infinite;
 }
 
-.marqueeItem {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 20px;
-  letter-spacing: 4px;
-  color: var(--yellow);
-  padding: 0 40px;
+.item {
+  font-size: 12px;
+  font-weight: 500;
+  color: #333;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0 24px;
   white-space: nowrap;
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 24px;
 }
 
-.marqueeSep {
-  color: var(--pink);
-  padding: 0;
+.sep {
+  color: #222;
+  font-size: 10px;
 }
 
 @keyframes marquee {
   from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  to { transform: translateX(-33.333%); }
 }

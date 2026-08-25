@@ -1,115 +1,102 @@
 .footer {
-  background: var(--black);
-  border-top: var(--border);
-  padding: 50px 40px;
+  padding: 60px 48px 40px;
+  border-top: 1px solid rgba(255,255,255,0.06);
 }
 
-.footerInner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+.inner {
+  max-width: 720px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 56px;
   gap: 40px;
-  align-items: start;
 }
 
-.footerBrand .footerLogo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 52px;
-  color: var(--yellow);
-  letter-spacing: 4px;
-  line-height: 1;
-  display: block;
-  margin-bottom: 12px;
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.footerTagline {
+.logo {
+  font-size: 15px;
+  font-weight: 500;
+  color: #f0f0f0;
+  letter-spacing: 0.05em;
+}
+
+.tagline {
   font-size: 13px;
-  color: #666;
-  font-family: 'IBM Plex Mono', monospace;
-  line-height: 1.6;
+  color: #444;
+  line-height: 1.7;
 }
 
-.footerCol h4 {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  color: #555;
-  margin-bottom: 18px;
-}
-
-.footerLinks {
-  list-style: none;
+.links {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  align-items: flex-end;
 }
 
-.footerLinks a {
+.link {
+  font-size: 13px;
+  color: #555;
   text-decoration: none;
-  color: #aaa;
-  font-size: 14px;
-  transition: color 0.15s;
+  transition: color 0.2s;
 }
 
-.footerLinks a:hover {
-  color: var(--yellow);
+.link:hover {
+  color: #e8ff5a;
 }
 
-.footerBottom {
-  max-width: 1200px;
-  margin: 40px auto 0;
-  padding-top: 30px;
-  border-top: 1px solid #222;
+/* Bottom */
+.bottom {
+  max-width: 720px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding-left: 40px;
-  padding-right: 40px;
+  justify-content: space-between;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.04);
 }
 
-.footerCopy {
+.copy {
   font-size: 12px;
-  color: #444;
-  font-family: 'IBM Plex Mono', monospace;
+  color: #333;
 }
 
-.footerCopy span {
-  color: var(--yellow);
-}
-
-.footerScrollTop {
-  width: 44px;
-  height: 44px;
-  background: var(--yellow);
-  border: var(--border);
+.toTop {
+  background: transparent;
+  border: 1px solid #222;
+  color: #555;
+  width: 36px;
+  height: 36px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  font-size: 20px;
-  transition: all 0.15s;
-  box-shadow: 4px 4px 0px #333;
-  text-decoration: none;
-  color: var(--black);
+  transition: border-color 0.2s, color 0.2s;
 }
 
-.footerScrollTop:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px #333;
+.toTop:hover {
+  border-color: #444;
+  color: #f0f0f0;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .footerInner {
-    grid-template-columns: 1fr;
+@media (max-width: 768px) {
+  .footer {
+    padding: 48px 24px 32px;
   }
-  .footerBottom {
+
+  .inner {
     flex-direction: column;
-    gap: 20px;
-    text-align: center;
-    padding-left: 0;
-    padding-right: 0;
+  }
+
+  .links {
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
   }
 }

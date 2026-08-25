@@ -1,18 +1,25 @@
-// export default async function UserPage({ params }) {
-//   const { username } = await params;
-
-//   return (
-//     <div>
-//       <h1>User: {username}</h1>
-//     </div>
-//   );
-// }
-
-import { redirect } from 'next/navigation';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Marquee from './components/Marquee';
+import About from './components/About';
+import Articles from './components/Articles';
+import Services from './components/Services';
+import Social from './components/Social';
+import Footer from './components/Footer';
 
 export default function Page() {
-
-    redirect('/yopa');
-
-  return null;
+  return (
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <Marquee />
+        <About />
+        <Articles />
+        <Services />
+        <Social />
+      </main>
+      <Footer />
+    </>
+  );
 }

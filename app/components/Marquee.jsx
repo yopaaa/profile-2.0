@@ -1,15 +1,15 @@
 import styles from './styles/Marquee.module.css';
 
-const techStack = ["REACT", "NODE.JS", "UI DESIGN", "TYPESCRIPT", "NEXT.JS", "FIGMA", "POSTGRESQL"];
+const items = ["React", "Next.js", "Node.js", "TypeScript", "Figma", "PostgreSQL", "Docker", "Tailwind"];
 
 export default function Marquee() {
   return (
-    <div className={styles.marqueeStrip}>
-      <div className={styles.marqueeTrack}>
-        {[...techStack, ...techStack].map((item, idx) => (
-          <span key={idx} className={styles.marqueeItem}>
+    <div className={styles.strip}>
+      <div className={styles.track}>
+        {[...items, ...items, ...items].map((item, idx) => (
+          <span key={idx} className={styles.item}>
             {item}
-            <span className={styles.marqueeSep}>✦</span>
+            <span className={styles.sep}>·</span>
           </span>
         ))}
       </div>

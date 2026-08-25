@@ -88,12 +88,7 @@ export default function LoginPage() {
           </button>
         </form>
 
-        <p className={styles.linkText}>
-          Belum punya akun?{" "}
-          <a href="/auth/register" className={styles.link}>
-            Daftar di sini
-          </a>
-        </p>
+
       </div>
     </div>
   );

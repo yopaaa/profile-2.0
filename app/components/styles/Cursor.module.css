@@ -1,0 +1,51 @@
+.dot,
+.ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  background: #e8ff5a;
+  border-radius: 50%;
+  margin-left: -2.5px;
+  margin-top: -2.5px;
+  transition: transform 0.05s, opacity 0.2s;
+}
+
+.ring {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(232, 255, 90, 0.4);
+  border-radius: 50%;
+  margin-left: -16px;
+  margin-top: -16px;
+  transition: width 0.25s, height 0.25s, margin 0.25s, border-color 0.25s, background 0.25s;
+}
+
+/* Hover state */
+.dot.hover {
+  opacity: 0;
+}
+
+.ring.hover {
+  width: 48px;
+  height: 48px;
+  margin-left: -24px;
+  margin-top: -24px;
+  border-color: rgba(232, 255, 90, 0.8);
+  background: rgba(232, 255, 90, 0.05);
+}
+
+/* Hide on mobile */
+@media (hover: none) {
+  .dot,
+  .ring {
+    display: none;
+  }
+}
