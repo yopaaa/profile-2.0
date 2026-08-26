@@ -20,7 +20,7 @@ const projects = [
     id: "02",
     tag: "SaaS",
     name: "Kasir",
-    desc: "Sistem kasir berbasis web untuk UMKM — cepat, sederhana, offline-first.",
+    desc: "Sistem kasir berbasis web untuk UMKM cepat, sederhana, offline-first.",
     url: "kasir.yopa.dev",
     href: "https://kasir.yopa.dev",
     // Taruh file di: public/images/projects/kasir.png

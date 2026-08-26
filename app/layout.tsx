@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Yopa Pitra R. — Developer & Designer",
+  title: "Yopa Pitra R. Developer & Designer",
   description: "Full-stack developer & UI designer based in Bangka, Indonesia.",
 };
 

@@ -8,7 +8,7 @@ const experiences = [
   {
     company: "Freelance",
     role: "Full-stack Developer",
-    period: "2022 — Present",
+    period: "2022 Present",
     current: true,
     desc: "Membangun web app dan landing page untuk berbagai klien. Stack utama: Next.js, Node.js, PostgreSQL, dan Figma untuk desain.",
     tags: ["Next.js", "Node.js", "PostgreSQL", "Figma"],
@@ -16,15 +16,15 @@ const experiences = [
   {
     company: "PT. Banka Digital",
     role: "Frontend Developer Intern",
-    period: "Jan 2022 — Jun 2022",
+    period: "Jan 2022 Jun 2022",
     current: false,
     desc: "Mengembangkan UI dashboard internal menggunakan React dan Tailwind CSS. Berkolaborasi dengan tim backend untuk integrasi REST API.",
     tags: ["React", "Tailwind CSS", "REST API"],
   },
   {
     company: "Universitas Bangka Belitung",
-    role: "Lab Assistant — Web Programming",
-    period: "2021 — 2022",
+    role: "Lab Assistant Web Programming",
+    period: "2021 2022",
     current: false,
     desc: "Membantu mahasiswa dalam praktikum HTML, CSS, dan JavaScript. Membuat modul praktikum dan materi ajar.",
     tags: ["HTML", "CSS", "JavaScript"],

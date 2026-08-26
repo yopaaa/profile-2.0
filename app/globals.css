@@ -14,7 +14,7 @@
   --radius: 4px;
 }
 
-/* Hide default cursor on desktop — custom cursor takes over */
+/* Hide default cursor on desktop custom cursor takes over */
 @media (hover: hover) {
   * {
     cursor: none !important;

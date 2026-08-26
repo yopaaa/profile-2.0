@@ -196,8 +196,8 @@
 
 .avatarGlow {
   position: absolute;
-  width: 360px;
-  height: 360px;
+  width: 580px;
+  height: 580px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(232, 255, 90, 0.28) 0%, rgba(232, 255, 90, 0.08) 50%, transparent 75%);
   filter: blur(40px);
@@ -214,8 +214,8 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 440px;
-  height: 480px;
+  max-width: 580px;
+  height: 580px;
   display: flex;
   align-items: flex-end;
   justify-content: center;

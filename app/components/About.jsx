@@ -85,7 +85,7 @@ export default function About() {
         </div>
 
         <p className={styles.bio} data-anim>
-          Halo, saya Yopa — full-stack developer berbasis di Bangka yang passionate
+          Halo, saya Yopa full-stack developer berbasis di Bangka yang passionate
           dalam membangun produk digital yang bermakna. Saya percaya kode yang bersih
           dan desain yang intuitif berjalan beriringan.
         </p>

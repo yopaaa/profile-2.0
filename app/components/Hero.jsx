@@ -7,9 +7,9 @@ import styles from "./styles/Hero.module.css";
 
 const marqueeLine1 = [
   "FULL-STACK DEVELOPER",
-  "UI/UX DESIGNER",
+  "IOT Engineer",
   "CREATIVE CODER",
-  "NEXT.JS SPECIALIST",
+  "Cloud & DevOps Enthusiast",
 ];
 
 const marqueeLine2 = [
