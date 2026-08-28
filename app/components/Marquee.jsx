@@ -1,15 +1,7 @@
+import portfolioData from '../../data/data.json';
 import styles from './styles/Marquee.module.css';
 
-const items = [
-  "React",
-  "Next.js",
-  "Node.js",
-  "TypeScript",
-  "Figma",
-  "PostgreSQL",
-  "Docker",
-  "Tailwind CSS",
-];
+const items = portfolioData.marquee;
 
 export default function Marquee() {
   // Triple the items so the loop is seamless

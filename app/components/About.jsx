@@ -2,16 +2,12 @@
 
 import { useEffect, useRef } from "react";
 import { animate, stagger } from "animejs";
+import portfolioData from "../../data/data.json";
 import styles from "./styles/About.module.css";
 
-const stats = [
-  { num: "4+", label: "Years exp.", count: 4, plus: true },
-  { num: "32", label: "Projects", count: 32, plus: false },
-  { num: "18", label: "Clients", count: 18, plus: false },
-  { num: "99%", label: "Satisfaction", count: 99, plus: false },
-];
-
-const skills = ["React.js", "Next.js", "Node.js", "TypeScript", "PostgreSQL", "Tailwind CSS", "Docker", "Figma"];
+const stats = portfolioData.about.stats;
+const skills = portfolioData.about.skills;
+const bioText = portfolioData.personal.aboutBio;
 
 export default function About() {
   const sectionRef = useRef(null);
@@ -85,9 +81,7 @@ export default function About() {
         </div>
 
         <p className={styles.bio} data-anim>
-          Halo, saya Yopa full-stack developer berbasis di Bangka yang passionate
-          dalam membangun produk digital yang bermakna. Saya percaya kode yang bersih
-          dan desain yang intuitif berjalan beriringan.
+          {bioText}
         </p>
 
         <div className={styles.skills} data-anim>

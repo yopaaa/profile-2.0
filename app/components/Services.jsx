@@ -3,30 +3,10 @@
 import { useEffect, useRef } from "react";
 import { animate, stagger } from "animejs";
 import Image from "next/image";
+import portfolioData from "../../data/data.json";
 import styles from "./styles/Services.module.css";
 
-const projects = [
-  {
-    id: "01",
-    tag: "Tool",
-    name: "Katalis",
-    desc: "URL shortener dengan analitik real-time dan dashboard yang clean.",
-    url: "katalis.yopa.dev",
-    href: "https://katalis.yopa.dev",
-    // Taruh file di: public/images/projects/katalis.png
-    image: "/images/projects/katalis.png",
-  },
-  {
-    id: "02",
-    tag: "SaaS",
-    name: "Kasir",
-    desc: "Sistem kasir berbasis web untuk UMKM cepat, sederhana, offline-first.",
-    url: "kasir.yopa.dev",
-    href: "https://kasir.yopa.dev",
-    // Taruh file di: public/images/projects/kasir.png
-    image: "/images/projects/kasir.png",
-  },
-];
+const projects = portfolioData.projects;
 
 export default function Services() {
   const sectionRef = useRef(null);

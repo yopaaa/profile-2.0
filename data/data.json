@@ -1,0 +1,133 @@
+{
+  "personal": {
+    "name": "Yopa Pitra R.",
+    "shortName": "Yopa",
+    "role": "Full-stack Developer & UI/UX Designer",
+    "location": "Bangka, Indonesia",
+    "email": "hello@yopaaa.dev",
+    "availability": "Available for freelance work",
+    "status": "Available for work",
+    "bio": "Membangun produk digital yang cepat, berkarakter, dan interaktif dengan estetika modern — berbasis di Bangka, Indonesia.",
+    "aboutBio": "Halo, saya Yopa — full-stack developer berbasis di Bangka yang passionate dalam membangun produk digital yang bermakna. Saya percaya kode yang bersih dan desain yang intuitif berjalan beriringan.",
+    "avatar": "/images/yopa.png",
+    "fallbackAvatar": "/images/yopa.jpeg"
+  },
+  "hero": {
+    "greeting": "Halo, saya",
+    "nameFirst": "Yopa",
+    "nameLast": "Pitra R.",
+    "roleTitle": "Full-stack Developer & UI/UX Designer",
+    "marqueeLine1": [
+      "FULL-STACK DEVELOPER",
+      "IOT Engineer",
+      "CREATIVE CODER",
+      "Cloud & DevOps Enthusiast"
+    ],
+    "marqueeLine2": [
+      "YOPA PITRA R.",
+      "BASED IN INDONESIA",
+      "MODERN WEB EXPERIENCES",
+      "REACT & NODE.JS"
+    ],
+    "techTags": ["Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "Figma", "Tailwind"]
+  },
+  "marquee": [
+    "React",
+    "Next.js",
+    "Node.js",
+    "TypeScript",
+    "Figma",
+    "PostgreSQL",
+    "Docker",
+    "Tailwind CSS"
+  ],
+  "about": {
+    "stats": [
+      { "num": "4+", "label": "Years exp.", "count": 4, "plus": true },
+      { "num": "32", "label": "Projects", "count": 32, "plus": false },
+      { "num": "18", "label": "Clients", "count": 18, "plus": false },
+      { "num": "99%", "label": "Satisfaction", "count": 99, "plus": false }
+    ],
+    "skills": [
+      "React.js",
+      "Next.js",
+      "Node.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "Docker",
+      "Figma"
+    ]
+  },
+  "experiences": [
+    {
+      "company": "Freelance",
+      "role": "Full-stack Developer",
+      "period": "2022 — Present",
+      "current": true,
+      "desc": "Membangun web app dan landing page untuk berbagai klien. Stack utama: Next.js, Node.js, PostgreSQL, dan Figma untuk desain.",
+      "tags": ["Next.js", "Node.js", "PostgreSQL", "Figma"]
+    },
+    {
+      "company": "PT. Banka Digital",
+      "role": "Frontend Developer Intern",
+      "period": "Jan 2022 — Jun 2022",
+      "current": false,
+      "desc": "Mengembangkan UI dashboard internal menggunakan React dan Tailwind CSS. Berkolaborasi dengan tim backend untuk integrasi REST API.",
+      "tags": ["React", "Tailwind CSS", "REST API"]
+    },
+    {
+      "company": "Universitas Bangka Belitung",
+      "role": "Lab Assistant — Web Programming",
+      "period": "2021 — 2022",
+      "current": false,
+      "desc": "Membantu mahasiswa dalam praktikum HTML, CSS, dan JavaScript. Membuat modul praktikum dan materi ajar.",
+      "tags": ["HTML", "CSS", "JavaScript"]
+    }
+  ],
+  "projects": [
+    {
+      "id": "01",
+      "tag": "Tool",
+      "name": "Katalis",
+      "desc": "URL shortener dengan analitik real-time dan dashboard yang clean.",
+      "url": "katalis.yopa.dev",
+      "href": "https://katalis.yopa.dev",
+      "image": "/images/projects/katalis.png"
+    },
+    {
+      "id": "02",
+      "tag": "SaaS",
+      "name": "Kasir",
+      "desc": "Sistem kasir berbasis web untuk UMKM — cepat, sederhana, offline-first.",
+      "url": "kasir.yopa.dev",
+      "href": "https://kasir.yopa.dev",
+      "image": "/images/projects/kasir.png"
+    }
+  ],
+  "socials": [
+    { "name": "GitHub", "handle": "@yopaaa", "url": "https://github.com/yopaaa", "abbr": "GH" },
+    { "name": "X / Twitter", "handle": "@yopaaa_", "url": "https://x.com/yopaaa_", "abbr": "X" },
+    { "name": "LinkedIn", "handle": "Yopa Pitra R.", "url": "https://linkedin.com/in/yopaaa", "abbr": "LI" },
+    { "name": "Instagram", "handle": "@yopaaa.dev", "url": "https://instagram.com/yopaaa.dev", "abbr": "IG" },
+    { "name": "Telegram", "handle": "@yopaaa", "url": "https://t.me/yopaaa", "abbr": "TG" }
+  ],
+  "seo": {
+    "siteUrl": "https://yopaaa.xyz",
+    "title": "Yopa Pitra R. — Full-stack Developer & UI/UX Designer",
+    "description": "Portofolio profesional Yopa Pitra R., Full-stack Developer & UI/UX Designer berbasis di Bangka, Indonesia. Spesialis React, Next.js, Node.js, dan modern digital products.",
+    "keywords": [
+      "Yopa Pitra R",
+      "Yopa",
+      "Full-stack Developer",
+      "Frontend Developer",
+      "UI/UX Designer",
+      "Next.js Developer Indonesia",
+      "React Developer",
+      "Bangka Developer",
+      "Web Developer Portfolio"
+    ],
+    "author": "Yopa Pitra R.",
+    "ogImage": "/images/yopa.jpeg"
+  }
+}

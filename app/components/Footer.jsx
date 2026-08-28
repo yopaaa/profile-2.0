@@ -1,6 +1,9 @@
 "use client";
 
+import portfolioData from "../../data/data.json";
 import styles from "./styles/Footer.module.css";
+
+const personal = portfolioData.personal;
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -13,11 +16,11 @@ export default function Footer() {
         <div className={styles.left}>
           <span className={styles.logo}>
             <span className={styles.logoDot} />
-            yopa
+            {personal.shortName.toLowerCase()}
           </span>
           <p className={styles.tagline}>
             Building things for the web.<br />
-            Bangka, Indonesia · hello@yopaaa.dev
+            {personal.location} · {personal.email}
           </p>
         </div>
 

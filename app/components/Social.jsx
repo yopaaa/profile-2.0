@@ -2,15 +2,10 @@
 
 import { useEffect, useRef } from "react";
 import { animate, stagger } from "animejs";
+import portfolioData from "../../data/data.json";
 import styles from "./styles/Social.module.css";
 
-const socials = [
-  { name: "GitHub", handle: "@yopaaa", url: "https://github.com/yopaaa", abbr: "GH" },
-  { name: "X / Twitter", handle: "@yopaaa_", url: "https://x.com/yopaaa_", abbr: "X" },
-  { name: "LinkedIn", handle: "Yopa Pitra R.", url: "https://linkedin.com/in/yopaaa", abbr: "LI" },
-  { name: "Instagram", handle: "@yopaaa.dev", url: "https://instagram.com/yopaaa.dev", abbr: "IG" },
-  { name: "Telegram", handle: "@yopaaa", url: "https://t.me/yopaaa", abbr: "TG" },
-];
+const socials = portfolioData.socials;
 
 export default function Social() {
   const sectionRef = useRef(null);

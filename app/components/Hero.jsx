@@ -3,21 +3,13 @@
 import { useEffect, useRef, useState } from "react";
 import { animate, stagger } from "animejs";
 import Image from "next/image";
+import portfolioData from "../../data/data.json";
 import styles from "./styles/Hero.module.css";
 
-const marqueeLine1 = [
-  "FULL-STACK DEVELOPER",
-  "IOT Engineer",
-  "CREATIVE CODER",
-  "Cloud & DevOps Enthusiast",
-];
-
-const marqueeLine2 = [
-  "YOPA PITRA R.",
-  "BASED IN INDONESIA",
-  "MODERN WEB EXPERIENCES",
-  "REACT & NODE.JS",
-];
+const marqueeLine1 = portfolioData.hero.marqueeLine1;
+const marqueeLine2 = portfolioData.hero.marqueeLine2;
+const personal = portfolioData.personal;
+const heroData = portfolioData.hero;
 
 export default function Hero() {
   const heroRef = useRef(null);
