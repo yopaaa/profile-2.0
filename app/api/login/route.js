@@ -1,13 +1,29 @@
 import { NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
 import { SignJWT } from 'jose';
-import { supabase } from '@/utils/db'
+import fs from 'fs';
+import path from 'path';
 
 const SECRET_KEY = new TextEncoder().encode(process.env.JWT_SECRET || 'rahasia-super-aman');
 
+function getAccountData() {
+  try {
+    const accountFilePath = path.join(process.cwd(), 'data', 'account.json');
+    if (!fs.existsSync(accountFilePath)) {
+      return null;
+    }
+    const raw = fs.readFileSync(accountFilePath, 'utf8');
+    return JSON.parse(raw);
+  } catch (err) {
+    console.error('Error reading account.json:', err);
+    return null;
+  }
+}
+
 export async function POST(request) {
   try {
-    const { email, password } = await request.json();    
+    const { email, password } = await request.json();
+    
     if (!email || !password) {
       return NextResponse.json(
         { message: 'Email dan password wajib diisi.' },
@@ -15,20 +31,24 @@ export async function POST(request) {
       );
     }
 
-    // 🔍 1. Cek user berdasarkan email
-    const { data: users, error } = await supabase
-      .from('users')
-      .select('*')
-      .eq('email', email)
-      .limit(1);
+    const account = getAccountData();
+    if (!account) {
+      return NextResponse.json(
+        { message: 'File account.json tidak ditemukan di server.' },
+        { status: 500 }
+      );
+    }
 
-    if (error) throw error;
+    // Support both single account object and array of accounts
+    const accounts = Array.isArray(account) ? account : [account];
+    const user = accounts.find(
+      (acc) => acc.email && acc.email.toLowerCase() === email.trim().toLowerCase()
+    );
 
-    const user = users?.[0];
     if (!user) {
       return NextResponse.json(
-        { message: 'Email tidak ditemukan.' },
-        { status: 404 }
+        { message: 'Email atau akun tidak ditemukan.' },
+        { status: 401 }
       );
     }
 
@@ -43,25 +63,32 @@ export async function POST(request) {
 
     // 🎫 3. Buat token JWT
     const token = await new SignJWT({
-      id: user.id,
       email: user.email,
-      role: user.role || 'user',
+      name: user.name || 'Admin',
+      role: user.role || 'admin',
     })
       .setProtectedHeader({ alg: 'HS256' })
       .setIssuedAt()
-      .setExpirationTime('1h')
+      .setExpirationTime('7d')
       .sign(SECRET_KEY);
 
     // 🍪 4. Set cookie HttpOnly dan user info
     const response = NextResponse.json(
-      { message: 'Login berhasil!', payload: { id: user.id, email: user.email, role: user.role } },
+      {
+        message: 'Login berhasil!',
+        payload: {
+          email: user.email,
+          name: user.name || 'Admin',
+          role: user.role || 'admin',
+        },
+      },
       { status: 200 }
     );
 
     response.cookies.set('token', token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
+      sameSite: 'lax',
       path: '/',
       maxAge: 60 * 60 * 24 * 7, // 7 hari
     });
@@ -69,15 +96,12 @@ export async function POST(request) {
     response.cookies.set(
       'userInfo',
       JSON.stringify({
-        id: user.id,
-        nama: user.nama,
         email: user.email,
-        nomor: user.nomor,
-        instansi: user.instansi,
-        role: user.role,
+        nama: user.name || 'Admin',
+        role: user.role || 'admin',
       }),
       {
-        sameSite: 'strict',
+        sameSite: 'lax',
         path: '/',
         maxAge: 60 * 60 * 24 * 7,
       }
