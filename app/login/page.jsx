@@ -63,7 +63,6 @@ export default function LoginPage() {
             <span className={styles.brandText}>yopa<span className={styles.brandBadge}>CMS</span></span>
           </Link>
           <h2 className={styles.title}>Admin Login</h2>
-          <p className={styles.subtitle}>Masuk untuk mengelola konten <code>data/data.json</code></p>
         </div>
 
         {successMessage && <div className={styles.success}>{successMessage}</div>}

@@ -2,9 +2,9 @@
   "personal": {
     "name": "Yopa Pitra R.",
     "shortName": "Yopa",
-    "role": "Full-stack Developer & UI/UX Designer",
+    "role": "Full-stack Developer & DevOps Engineer",
     "location": "Bangka, Indonesia",
-    "email": "hello@yopaaa.dev",
+    "email": "yopapirdani@gmail.com",
     "availability": "Available for freelance work",
     "status": "Available for work",
     "bio": "Membangun produk digital yang cepat, berkarakter, dan interaktif dengan estetika modern — berbasis di Bangka, Indonesia.",
@@ -16,7 +16,7 @@
     "greeting": "Halo, saya",
     "nameFirst": "Yopa",
     "nameLast": "Pitra R.",
-    "roleTitle": "Full-stack Developer & UI/UX Designer",
+    "roleTitle": "Full-stack Developer & DevOps Engineer",
     "marqueeLine1": [
       "FULL-STACK DEVELOPER",
       "IOT Engineer",
@@ -29,7 +29,16 @@
       "MODERN WEB EXPERIENCES",
       "REACT & NODE.JS"
     ],
-    "techTags": ["Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "Figma", "Tailwind"]
+    "techTags": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL",
+      "Figma",
+      "Tailwind",
+      "Linux"
+    ]
   },
   "marquee": [
     "React",
@@ -43,10 +52,30 @@
   ],
   "about": {
     "stats": [
-      { "num": "4+", "label": "Years exp.", "count": 4, "plus": true },
-      { "num": "32", "label": "Projects", "count": 32, "plus": false },
-      { "num": "18", "label": "Clients", "count": 18, "plus": false },
-      { "num": "99%", "label": "Satisfaction", "count": 99, "plus": false }
+      {
+        "num": "4+",
+        "label": "Years exp.",
+        "count": 4,
+        "plus": true
+      },
+      {
+        "num": "32",
+        "label": "Projects",
+        "count": 32,
+        "plus": false
+      },
+      {
+        "num": "18",
+        "label": "Clients",
+        "count": 18,
+        "plus": false
+      },
+      {
+        "num": "99%",
+        "label": "Satisfaction",
+        "count": 99,
+        "plus": false
+      }
     ],
     "skills": [
       "React.js",
@@ -61,28 +90,44 @@
   },
   "experiences": [
     {
-      "company": "Freelance",
-      "role": "Full-stack Developer",
-      "period": "2022 — Present",
+      "company": "Nusantara Labs",
+      "role": "Founder and Enginer",
+      "period": "June 2026 - Present",
       "current": true,
-      "desc": "Membangun web app dan landing page untuk berbagai klien. Stack utama: Next.js, Node.js, PostgreSQL, dan Figma untuk desain.",
-      "tags": ["Next.js", "Node.js", "PostgreSQL", "Figma"]
+      "desc": "Bertanggung jawab dalam keserdiaan server dan membangun sistem.",
+      "tags": [
+        "Next.js",
+        "React",
+        "Node.js",
+        "Linux"
+      ]
     },
     {
-      "company": "PT. Banka Digital",
-      "role": "Frontend Developer Intern",
-      "period": "Jan 2022 — Jun 2022",
-      "current": false,
-      "desc": "Mengembangkan UI dashboard internal menggunakan React dan Tailwind CSS. Berkolaborasi dengan tim backend untuk integrasi REST API.",
-      "tags": ["React", "Tailwind CSS", "REST API"]
+      "company": "Instact Base Babel",
+      "role": "Full-stack Developer",
+      "period": "July 2026 - September 2026 ",
+      "current": true,
+      "desc": "Membangun web app, landing page dan aplikasi internal persahaan untuk klien. Stack utama: Next.js, Node.js, PostgreSQL.",
+      "tags": [
+        "Next.js",
+        "Node.js",
+        "PostgreSQL",
+        "Figma",
+        "Linux"
+      ]
     },
     {
-      "company": "Universitas Bangka Belitung",
-      "role": "Lab Assistant — Web Programming",
-      "period": "2021 — 2022",
+      "company": "Rosman Djohan Institute",
+      "role": "Fullstack Web Developer",
+      "period": "2024",
       "current": false,
       "desc": "Membantu mahasiswa dalam praktikum HTML, CSS, dan JavaScript. Membuat modul praktikum dan materi ajar.",
-      "tags": ["HTML", "CSS", "JavaScript"]
+      "tags": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Nodejs"
+      ]
     }
   ],
   "projects": [
@@ -106,11 +151,36 @@
     }
   ],
   "socials": [
-    { "name": "GitHub", "handle": "@yopaaa", "url": "https://github.com/yopaaa", "abbr": "GH" },
-    { "name": "X / Twitter", "handle": "@yopaaa_", "url": "https://x.com/yopaaa_", "abbr": "X" },
-    { "name": "LinkedIn", "handle": "Yopa Pitra R.", "url": "https://linkedin.com/in/yopaaa", "abbr": "LI" },
-    { "name": "Instagram", "handle": "@yopaaa.dev", "url": "https://instagram.com/yopaaa.dev", "abbr": "IG" },
-    { "name": "Telegram", "handle": "@yopaaa", "url": "https://t.me/yopaaa", "abbr": "TG" }
+    {
+      "name": "GitHub",
+      "handle": "@yopaaa",
+      "url": "https://github.com/yopaaa",
+      "abbr": "GH"
+    },
+    {
+      "name": "X / Twitter",
+      "handle": "@yopaaa_",
+      "url": "https://x.com/yopaaa_",
+      "abbr": "X"
+    },
+    {
+      "name": "LinkedIn",
+      "handle": "Yopa Pitra R.",
+      "url": "https://linkedin.com/in/yopaaa",
+      "abbr": "LI"
+    },
+    {
+      "name": "Instagram",
+      "handle": "@yopaaa.dev",
+      "url": "https://instagram.com/yopaaa.dev",
+      "abbr": "IG"
+    },
+    {
+      "name": "Telegram",
+      "handle": "@yopaaa",
+      "url": "https://t.me/yopaaa",
+      "abbr": "TG"
+    }
   ],
   "seo": {
     "siteUrl": "https://yopaaa.xyz",

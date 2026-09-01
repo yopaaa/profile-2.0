@@ -1,26 +1,21 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { usePathname } from "next/navigation";
 import styles from "./styles/Cursor.module.css";
 
 export default function Cursor() {
-  const pathname = usePathname();
   const dotRef = useRef(null);
   const ringRef = useRef(null);
 
-  const isAdminOrLogin = pathname?.startsWith('/admin') || pathname?.startsWith('/login');
-
   useEffect(() => {
-    if (isAdminOrLogin) return;
     const dot = dotRef.current;
     const ring = ringRef.current;
     if (!dot || !ring) return;
 
-    let mouseX = 0;
-    let mouseY = 0;
-    let ringX = 0;
-    let ringY = 0;
+    let mouseX = -100;
+    let mouseY = -100;
+    let ringX = -100;
+    let ringY = -100;
     let raf;
 
     const onMove = (e) => {
@@ -53,7 +48,7 @@ export default function Cursor() {
 
     // Track hover on interactive elements
     const addListeners = () => {
-      document.querySelectorAll("a, button, [role='button']").forEach((el) => {
+      document.querySelectorAll("a, button, [role='button'], input, textarea, select").forEach((el) => {
         el.addEventListener("mouseenter", onEnterLink);
         el.addEventListener("mouseleave", onLeaveLink);
       });
@@ -71,10 +66,6 @@ export default function Cursor() {
       observer.disconnect();
     };
   }, []);
-
-  if (isAdminOrLogin) {
-    return null;
-  }
 
   return (
     <>
