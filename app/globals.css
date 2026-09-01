@@ -14,10 +14,20 @@
   --radius: 4px;
 }
 
-/* Hide default cursor on desktop custom cursor takes over */
+/* Hide default cursor on desktop — custom cursor takes over on main portfolio */
 @media (hover: hover) {
   * {
     cursor: none !important;
+  }
+
+  input, textarea, select, button, [contenteditable], .admin-area, .admin-area * {
+    cursor: auto !important;
+  }
+  input, textarea, [contenteditable] {
+    cursor: text !important;
+  }
+  button, a, select, [role="button"] {
+    cursor: pointer !important;
   }
 }
 

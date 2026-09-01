@@ -1,80 +1,153 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import styles from './Sidebar.module.css'; // Import CSS Module
+import { usePathname, useSearchParams } from 'next/navigation';
+import {
+  User,
+  Zap,
+  Briefcase,
+  Layers,
+  Sparkles,
+  Share2,
+  Repeat,
+  Search,
+  FileCode,
+  Settings,
+  ExternalLink,
+  LogOut,
+  Menu,
+  X,
+} from 'lucide-react';
+import styles from './Sidebar.module.css';
 import Cookie from 'js-cookie';
+
+const contentNavItems = [
+  { id: 'personal', label: 'Personal Info', href: '/admin?tab=personal', icon: User },
+  { id: 'hero', label: 'Hero Section', href: '/admin?tab=hero', icon: Zap },
+  { id: 'experiences', label: 'Experiences', href: '/admin?tab=experiences', icon: Briefcase },
+  { id: 'projects', label: 'Projects', href: '/admin?tab=projects', icon: Layers },
+  { id: 'about', label: 'About & Skills', href: '/admin?tab=about', icon: Sparkles },
+  { id: 'socials', label: 'Social Links', href: '/admin?tab=socials', icon: Share2 },
+  { id: 'marquee', label: 'Marquee Strip', href: '/admin?tab=marquee', icon: Repeat },
+  { id: 'seo', label: 'SEO & Metadata', href: '/admin?tab=seo', icon: Search },
+  { id: 'raw', label: 'Raw JSON Editor', href: '/admin?tab=raw', icon: FileCode },
+];
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [user, setUser] = useState(null);
   const pathname = usePathname();
-  const user = Cookie.get('userInfo') ? JSON.parse(Cookie.get('userInfo')) : null;
+  const searchParams = useSearchParams();
+  const currentTab = searchParams ? searchParams.get('tab') || 'personal' : 'personal';
 
-  const menuItems = [
-    { label: 'Dashboard', href: '/admin' },
-    { label: 'Users', href: '/admin/users' },
-    { label: 'Posts', href: '/admin/posts' },
-    { label: 'Settings', href: '/admin/settings' },
-  ];
-
-  console.log('User Info from Cookie:', user);
+  useEffect(() => {
+    try {
+      const rawUser = Cookie.get('userInfo');
+      if (rawUser) {
+        setUser(JSON.parse(rawUser));
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }, []);
 
   const toggleSidebar = () => setIsOpen(!isOpen);
 
+  const handleLogout = async () => {
+    try {
+      await fetch('/api/logout', { method: 'POST' });
+      Cookie.remove('userInfo');
+      window.location.href = '/login';
+    } catch (error) {
+      console.error('Logout error:', error);
+    }
+  };
+
   return (
     <>
-      {/* Button Mobile */}
-      <button className={styles.toggleBtn} onClick={toggleSidebar}>
-        {isOpen ? '✕' : '☰'}
+      {/* Button Mobile Toggle */}
+      <button className={styles.toggleBtn} onClick={toggleSidebar} aria-label="Toggle menu">
+        {isOpen ? <X size={20} /> : <Menu size={20} />}
       </button>
 
-      {/* Overlay */}
+      {/* Overlay for mobile */}
       {isOpen && <div className={styles.overlay} onClick={toggleSidebar} />}
 
-      {/* Sidebar */}
+      {/* Sidebar Container */}
       <aside className={`${styles.sidebarContainer} ${isOpen ? styles.visible : styles.hidden}`}>
+        {/* Brand Header */}
         <div className={styles.header}>
-          <h1 className="text-2xl font-bold">{user ? user.nama : 'Admin'}</h1>
+          <Link href="/" className={styles.brand}>
+            <span className={styles.brandDot} />
+            <span className={styles.brandText}>
+              yopa<span className={styles.badge}>CMS</span>
+            </span>
+          </Link>
+
+          <div className={styles.userCard}>
+            <div className={styles.userAvatar}>
+              {user?.nama ? user.nama.charAt(0).toUpperCase() : 'A'}
+            </div>
+            <div className={styles.userInfo}>
+              <span className={styles.userName}>{user?.nama || 'Admin'}</span>
+              <span className={styles.userRole}>{user?.email || 'admin@yopaaa.dev'}</span>
+            </div>
+          </div>
         </div>
 
+        {/* Navigation Sections with Lucide Icons */}
         <nav className={styles.nav}>
-          {menuItems.map((item) => {
-            const isActive = pathname === item.href;
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className={`${styles.link} ${isActive ? styles.activeLink : ''}`}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
+          <div className={styles.navSectionLabel}>CONTENT SECTIONS</div>
+          <div className={styles.navGroup}>
+            {contentNavItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = pathname === '/admin' && currentTab === item.id;
+              return (
+                <Link
+                  key={item.id}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`${styles.link} ${isActive ? styles.activeLink : ''}`}
+                >
+                  <Icon size={16} className={styles.menuIcon} />
+                  <span>{item.label}</span>
+                </Link>
+              );
+            })}
+          </div>
 
-           <button
-             onClick={() => {
-               fetch('/api/logout', { method: 'POST' })
-                 .then(() => {
-                   Cookie.remove('userInfo');
-                   window.location.href = '/';
-                 })
-                 .catch((error) => console.error('Logout error:', error));
-             }}
-             className={`${styles.link} ${styles.logoutBtn}`}
-           >
-             Logout
-           </button>
+          <div className={styles.navSectionLabel} style={{ marginTop: '16px' }}>
+            PREFERENCES
+          </div>
+          <div className={styles.navGroup}>
+            <Link
+              href="/admin/settings"
+              onClick={() => setIsOpen(false)}
+              className={`${styles.link} ${pathname === '/admin/settings' ? styles.activeLink : ''}`}
+            >
+              <Settings size={16} className={styles.menuIcon} />
+              <span>Account Settings</span>
+            </Link>
+          </div>
         </nav>
 
+        {/* Footer Actions */}
         <div className={styles.footer}>
-          <Link href="/" className={styles.backBtn}>
-            Back to Home
+          <Link href="/" target="_blank" className={styles.liveBtn}>
+            <span className={styles.liveBtnInner}>
+              <ExternalLink size={14} />
+              <span>Lihat Website</span>
+            </span>
+            <span className={styles.arrowIcon}>↗</span>
           </Link>
+
+          <button onClick={handleLogout} className={styles.logoutBtn}>
+            <LogOut size={14} />
+            <span>Keluar (Logout)</span>
+          </button>
         </div>
       </aside>
     </>
   );
 }
-        
