@@ -3,10 +3,21 @@
 import { useEffect, useRef } from "react";
 import { animate, stagger } from "animejs";
 import Image from "next/image";
+import Link from "next/link";
+import { Pin, ArrowRight } from "lucide-react";
 import portfolioData from "../../data/data.json";
 import styles from "./styles/Services.module.css";
 
-const projects = portfolioData.projects;
+const allProjects = portfolioData.projects || [];
+
+// Prioritaskan proyek yang di-pin, lalu potong max 3
+const featuredProjects = [...allProjects]
+  .sort((a, b) => {
+    if (a.pinned && !b.pinned) return -1;
+    if (!a.pinned && b.pinned) return 1;
+    return 0;
+  })
+  .slice(0, 3);
 
 export default function Services() {
   const sectionRef = useRef(null);
@@ -41,19 +52,25 @@ export default function Services() {
 
         {/* Header */}
         <div className={styles.header} data-anim>
-          <span className={styles.label}>Portfolio</span>
+          <div className={styles.headerTitleWrap}>
+            <span className={styles.label}>Portfolio</span>
+            <span className={styles.badge}>Featured (3)</span>
+          </div>
           <div className={styles.headerLine} />
-          <span className={styles.count}>{projects.length} projects</span>
+          <Link href="/projects" className={styles.viewAllHeaderLink}>
+            <span>Semua Proyek ({allProjects.length})</span>
+            <ArrowRight size={13} />
+          </Link>
         </div>
 
-        {/* Grid */}
+        {/* 1 Row on Laptop/Desktop (3 columns), 1 Column on Mobile */}
         <div className={styles.grid}>
-          {projects.map((p) => (
+          {featuredProjects.map((p) => (
             <a
               key={p.id}
-              href={p.href}
-              target="_blank"
-              rel="noreferrer"
+              href={p.href || `/projects#project-${p.id}`}
+              target={p.href ? "_blank" : "_self"}
+              rel={p.href ? "noreferrer" : undefined}
               className={styles.card}
               data-anim
             >
@@ -64,16 +81,23 @@ export default function Services() {
                   alt={`${p.name} preview`}
                   fill
                   className={styles.image}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  // Fallback jika image belum ada
+                  sizes="(max-width: 900px) 100vw, 33vw"
                   onError={(e) => {
                     e.currentTarget.style.display = "none";
                   }}
                 />
-                {/* Overlay gradient */}
                 <div className={styles.imageOverlay} />
-                {/* Tag di atas image */}
-                <span className={styles.cardTag}>{p.tag}</span>
+                
+                {/* Badges on top of image */}
+                <div className={styles.badgeGroup}>
+                  {p.pinned && (
+                    <span className={styles.pinnedBadge} title="Proyek Pilihan / Pinned">
+                      <Pin size={10} />
+                      <span>PINNED</span>
+                    </span>
+                  )}
+                  <span className={styles.cardTag}>{p.tag}</span>
+                </div>
               </div>
 
               {/* Card Body */}
@@ -84,12 +108,20 @@ export default function Services() {
                 </div>
                 <p className={styles.cardDesc}>{p.desc}</p>
                 <div className={styles.cardFooter}>
-                  <span className={styles.cardUrl}>{p.url}</span>
+                  <span className={styles.cardUrl}>{p.url || "Lihat detail"}</span>
                   <span className={styles.cardArrow}>↗</span>
                 </div>
               </div>
             </a>
           ))}
+        </div>
+
+        {/* Button to view all projects */}
+        <div className={styles.moreAction} data-anim>
+          <Link href="/projects" className={styles.viewAllBtn}>
+            <span>Lihat Semua {allProjects.length} Proyek</span>
+            <ArrowRight size={15} />
+          </Link>
         </div>
 
       </div>

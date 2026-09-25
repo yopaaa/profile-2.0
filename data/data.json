@@ -1,14 +1,14 @@
 {
   "personal": {
-    "name": "Yopa Pitra R.",
+    "name": "Yopa Pitra Ramadhani",
     "shortName": "Yopa",
-    "role": "Full-stack Developer & DevOps Engineer",
-    "location": "Bangka, Indonesia",
-    "email": "yopapirdani@gmail.com",
+    "role": "Full Stack Developer",
+    "location": "Bangka Belitung, Indonesia",
+    "email": "yopapitrar@gmail.com",
     "availability": "Available for freelance work",
     "status": "Available for work",
-    "bio": "Membangun produk digital yang cepat, berkarakter, dan interaktif dengan estetika modern — berbasis di Bangka, Indonesia.",
-    "aboutBio": "Halo, saya Yopa — full-stack developer berbasis di Bangka yang passionate dalam membangun produk digital yang bermakna. Saya percaya kode yang bersih dan desain yang intuitif berjalan beriringan.",
+    "bio": "Membangun produk digital web, mobile, dan IoT end-to-end — dari arsitektur, development, hingga hosting dan maintenance — berbasis di Bangka Belitung, Indonesia.",
+    "aboutBio": "Halo, saya Yopa Full Stack Developer berbasis di Bangka Belitung dengan pengalaman langsung mengembangkan produk web, mobile, dan IoT dari nol hingga deployment. Terbiasa bekerja lintas stack dengan Next.js, React Native, dan embedded systems (ESP8266/ESP32), serta terdorong untuk mengubah ide menjadi produk nyata seperti yang tercermin dari perjalanan mendirikan nlabs.id.",
     "avatar": "/images/yopa.png",
     "fallbackAvatar": "/images/yopa.jpeg"
   },
@@ -19,135 +19,186 @@
     "roleTitle": "Full-stack Developer & DevOps Engineer",
     "marqueeLine1": [
       "FULL-STACK DEVELOPER",
-      "IOT Engineer",
+      "IoT Engineer",
       "CREATIVE CODER",
-      "Cloud & DevOps Enthusiast"
+      "Cloud & DevOps"
     ],
     "marqueeLine2": [
-      "YOPA PITRA R.",
-      "BASED IN INDONESIA",
-      "MODERN WEB EXPERIENCES",
-      "REACT & NODE.JS"
+      "YOPA PITRA RAMADHANI",
+      "BASED IN BANGKA BELITUNG",
+      "WEB, MOBILE & IOT",
+      "NEXT.JS & REACT NATIVE",
+      "LINUX",
+      "UBUNTU"
     ],
     "techTags": [
       "Next.js",
-      "React",
-      "TypeScript",
+      "React.js",
+      "React Native",
       "Node.js",
-      "PostgreSQL",
-      "Figma",
-      "Tailwind",
-      "Linux"
+      "JavaScript",
+      "MongoDB",
+      "SQL",
+      "Docker",
+      "Linux",
+      "Golang",
+      "Flutter"
     ]
   },
   "marquee": [
-    "React",
     "Next.js",
+    "React.js",
+    "React Native",
     "Node.js",
-    "TypeScript",
-    "Figma",
-    "PostgreSQL",
+    "JavaScript",
+    "MongoDB",
     "Docker",
-    "Tailwind CSS"
+    "Arduino/C++",
+    "Linux",
+    "Golang",
+    "Flutter"
   ],
   "about": {
     "stats": [
       {
-        "num": "4+",
+        "num": "5+",
         "label": "Years exp.",
-        "count": 4,
+        "count": 5,
         "plus": true
       },
       {
-        "num": "32",
+        "num": "6",
         "label": "Projects",
-        "count": 32,
+        "count": 6,
         "plus": false
       },
       {
-        "num": "18",
-        "label": "Clients",
-        "count": 18,
+        "num": "2",
+        "label": "Companies",
+        "count": 2,
         "plus": false
       },
       {
-        "num": "99%",
-        "label": "Satisfaction",
-        "count": 99,
+        "num": "1",
+        "label": "Startup Founded",
+        "count": 1,
         "plus": false
       }
     ],
     "skills": [
+      "JavaScript",
+      "Node.js",
       "React.js",
       "Next.js",
-      "Node.js",
-      "TypeScript",
-      "PostgreSQL",
-      "Tailwind CSS",
+      "HTML & CSS",
+      "Arduino/C++",
+      "SQL",
+      "MongoDB",
       "Docker",
-      "Figma"
+      "Linux",
+      "Golang",
+      "Flutter"
     ]
   },
   "experiences": [
     {
-      "company": "Nusantara Labs",
-      "role": "Founder and Enginer",
+      "company": "IntactBase Babel",
+      "role": "Full Stack Developer",
       "period": "June 2026 - Present",
       "current": true,
-      "desc": "Bertanggung jawab dalam keserdiaan server dan membangun sistem.",
+      "desc": "Mengembangkan dan memelihara aplikasi berbasis web sebagai bagian dari tim engineering, serta berkontribusi pada desain, implementasi, dan pemeliharaan produk digital perusahaan.",
       "tags": [
         "Next.js",
-        "React",
-        "Node.js",
-        "Linux"
+        "React.js",
+        "Node.js"
       ]
     },
     {
-      "company": "Instact Base Babel",
-      "role": "Full-stack Developer",
-      "period": "July 2026 - September 2026 ",
+      "company": "nlabs.id",
+      "role": "Founder",
+      "period": "Present",
       "current": true,
-      "desc": "Membangun web app, landing page dan aplikasi internal persahaan untuk klien. Stack utama: Next.js, Node.js, PostgreSQL.",
+      "desc": "Mendirikan dan membangun startup pribadi nlabs.id, mengembangkan solusi backend custom dan layanan web automation. Merancang arsitektur database dan REST API menggunakan MariaDB, Node.js, dan lingkungan server Linux.",
       "tags": [
-        "Next.js",
         "Node.js",
-        "PostgreSQL",
-        "Figma",
+        "MariaDB",
+        "REST API",
         "Linux"
       ]
     },
     {
       "company": "Rosman Djohan Institute",
-      "role": "Fullstack Web Developer",
-      "period": "2024",
+      "role": "Full Stack Developer",
+      "period": "Jan 2025 - March 2025",
       "current": false,
-      "desc": "Membantu mahasiswa dalam praktikum HTML, CSS, dan JavaScript. Membuat modul praktikum dan materi ajar.",
+      "desc": "Merancang dan mengembangkan website dari nol menggunakan Next.js untuk performa cepat dan responsif. Menangani setup hosting dan manajemen domain untuk beberapa website, memantau uptime, serta berkolaborasi dengan tim internal untuk fitur dan pembaruan rutin.",
       "tags": [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "Nodejs"
+        "Next.js",
+        "Hosting",
+        "Domain Management"
       ]
     }
   ],
   "projects": [
     {
       "id": "01",
-      "tag": "Tool",
-      "name": "Katalis",
-      "desc": "URL shortener dengan analitik real-time dan dashboard yang clean.",
-      "url": "katalis.yopa.dev",
-      "href": "https://katalis.yopa.dev",
-      "image": "/images/projects/katalis.png"
+      "tag": "Web App, IoT Integration",
+      "name": "PH Monitor — Admin Dashboard",
+      "desc": "Dashboard admin berbasis web untuk memantau dan mengelola pembacaan sensor pH secara real-time, menghubungkan data hardware IoT ke platform web terpusat.",
+      "url": "ph-monitor.nlabs.id/admin",
+      "href": "https://ph-monitor.nlabs.id/admin",
+      "image": "/images/projects/ph-monitor.png",
+      "pinned": false
     },
     {
       "id": "02",
-      "tag": "SaaS",
-      "name": "Kasir",
-      "desc": "Sistem kasir berbasis web untuk UMKM — cepat, sederhana, offline-first.",
-      "url": "kasir.yopa.dev",
-      "href": "https://kasir.yopa.dev",
-      "image": "/images/projects/kasir.png"
+      "tag": "Personal Project",
+      "name": "Pixme",
+      "desc": "Proyek pribadi yang digunakan sebagai ruang eksperimen dengan tools dan teknik baru di luar pekerjaan sehari-hari.",
+      "url": "github.com/yopaaa/Pixme_1.0",
+      "href": "https://github.com/yopaaa/Pixme_1.0",
+      "image": "/images/projects/pixme.png",
+      "pinned": true
+    },
+    {
+      "id": "03",
+      "tag": "Website",
+      "name": "Pantai Penyusuk",
+      "desc": "Website untuk Pantai Penyusuk, destinasi pantai di Bangka, menampilkan informasi dan visual bagi pengunjung guna mempromosikan pariwisata lokal Bangka Belitung.",
+      "url": "",
+      "href": "",
+      "image": "/images/projects/pantai-penyusuk.png",
+      "pinned": true
+    },
+    {
+      "id": "04",
+      "tag": "Web Application",
+      "name": "MBG Simulator",
+      "desc": "Aplikasi simulator/kalkulator terkait program Makan Bergizi Gratis (MBG) Indonesia, dirancang untuk memvisualisasikan dan mengestimasi angka-angka terkait program dengan antarmuka yang mudah digunakan.",
+      "url": "",
+      "href": "",
+      "image": "/images/projects/mbg-simulator.png",
+      "pinned": true
+    },
+    {
+      "id": "05",
+      "tag": "React Native, Expo",
+      "name": "Digital Clock",
+      "desc": "Aplikasi jam digital mobile yang dapat disesuaikan menggunakan React Native dan Expo. Pengguna dapat mengubah warna, tema, dan mode. Berjalan di Android dan iOS.",
+      "url": "",
+      "href": "",
+      "image": "/images/projects/digital-clock.png",
+      "pinned": false
+    },
+    {
+      "id": "06",
+      "tag": "ESP8266/ESP32, PlatformIO",
+      "name": "Digital Clock WS1228B",
+      "desc": "Jam digital berbasis web menggunakan ESP8266/ESP32, dengan web server memakai ESPAsyncWebServer dan respons data JSON terstruktur menggunakan ArduinoJson.",
+      "url": "",
+      "href": "",
+      "image": "/images/projects/digital-clock-ws1228b.png",
+      "pinned": false
     }
   ],
   "socials": [
@@ -165,14 +216,14 @@
     },
     {
       "name": "LinkedIn",
-      "handle": "Yopa Pitra R.",
+      "handle": "Yopa Pitra Ramadhani",
       "url": "https://linkedin.com/in/yopaaa",
       "abbr": "LI"
     },
     {
       "name": "Instagram",
       "handle": "@yopaaa.dev",
-      "url": "https://instagram.com/yopaaa.dev",
+      "url": "https://instagram.com/linus_yp",
       "abbr": "IG"
     },
     {
@@ -183,21 +234,21 @@
     }
   ],
   "seo": {
-    "siteUrl": "https://yopaaa.xyz",
-    "title": "Yopa Pitra R. — Full-stack Developer & UI/UX Designer",
-    "description": "Portofolio profesional Yopa Pitra R., Full-stack Developer & UI/UX Designer berbasis di Bangka, Indonesia. Spesialis React, Next.js, Node.js, dan modern digital products.",
+    "siteUrl": "https://yopa.nlabs.id",
+    "title": "Yopa Pitra Ramadhani — Full Stack Developer",
+    "description": "Portofolio profesional Yopa Pitra Ramadhani, Full Stack Developer berbasis di Bangka Belitung, Indonesia. Spesialis Next.js, React, Node.js, dan pengembangan produk web, mobile, dan IoT end-to-end.",
     "keywords": [
-      "Yopa Pitra R",
+      "Yopa Pitra Ramadhani",
       "Yopa",
-      "Full-stack Developer",
-      "Frontend Developer",
-      "UI/UX Designer",
+      "Full Stack Developer",
       "Next.js Developer Indonesia",
       "React Developer",
-      "Bangka Developer",
+      "React Native Developer",
+      "IoT Developer",
+      "Bangka Belitung Developer",
       "Web Developer Portfolio"
     ],
-    "author": "Yopa Pitra R.",
+    "author": "Yopa Pitra Ramadhani",
     "ogImage": "/images/yopa.jpeg"
   }
 }

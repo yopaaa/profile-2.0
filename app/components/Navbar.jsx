@@ -5,9 +5,9 @@ import Link from "next/link";
 import styles from "./styles/Navbar.module.css";
 
 const navLinks = [
-  { name: "About", href: "#about" },
-  { name: "Experience", href: "#experience" },
-  { name: "Portfolio", href: "#services" },
+  { name: "About", href: "/#about" },
+  { name: "Experience", href: "/#experience" },
+  { name: "Portfolio", href: "/#services" },
   { name: "Contact", href: "mailto:hello@yopaaa.dev" },
 ];
 

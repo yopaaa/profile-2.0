@@ -19,6 +19,7 @@ import {
   ExternalLink,
   CheckCircle2,
   AlertTriangle,
+  Pin,
 } from "lucide-react";
 import styles from "./page.module.css";
 
@@ -191,6 +192,7 @@ function AdminContent() {
       url: "project.yopa.dev",
       href: "https://project.yopa.dev",
       image: "/images/projects/katalis.png",
+      pinned: false,
     };
     setData((prev) => ({
       ...prev,
@@ -646,6 +648,25 @@ function AdminContent() {
                     <div className={styles.cardItemTitle}>
                       <span className={styles.itemBadge}>#{proj.id || index + 1}</span>
                       <strong>{proj.name || "Nama Proyek"}</strong>
+                      {proj.pinned && (
+                        <span
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: "4px",
+                            fontSize: "10px",
+                            fontWeight: "600",
+                            padding: "2px 8px",
+                            borderRadius: "12px",
+                            background: "rgba(232, 255, 90, 0.15)",
+                            color: "var(--accent, #e8ff5a)",
+                            border: "1px solid rgba(232, 255, 90, 0.3)",
+                            marginLeft: "8px",
+                          }}
+                        >
+                          <Pin size={10} /> Pinned
+                        </span>
+                      )}
                     </div>
                     <button
                       onClick={() => removeProject(index)}
@@ -722,6 +743,20 @@ function AdminContent() {
                       />
                       <span className={styles.fieldHint}>/images/projects/...</span>
                     </div>
+                  </div>
+
+                  <div className={styles.fieldGroupCheckbox} style={{ marginTop: "12px" }}>
+                    <label>
+                      <input
+                        type="checkbox"
+                        checked={Boolean(proj.pinned)}
+                        onChange={(e) => updateProject(index, "pinned", e.target.checked)}
+                      />
+                      <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                        <Pin size={13} color={proj.pinned ? "var(--accent, #e8ff5a)" : "#666"} />
+                        <span>Pin ke Halaman Utama (Tampilkan di Beranda — Prioritas Max 3 Proyek)</span>
+                      </span>
+                    </label>
                   </div>
                 </div>
               ))}
