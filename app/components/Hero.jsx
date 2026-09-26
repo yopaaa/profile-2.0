@@ -14,7 +14,14 @@ const heroData = portfolioData.hero;
 export default function Hero() {
   const heroRef = useRef(null);
   const avatarRef = useRef(null);
-  const [imgSrc, setImgSrc] = useState("/images/yopa.png");
+  const avatarPath = personal?.avatar || "/images/yopa.png";
+  const [imgSrc, setImgSrc] = useState(avatarPath);
+
+  useEffect(() => {
+    if (personal?.avatar) {
+      setImgSrc(personal.avatar);
+    }
+  }, [personal?.avatar]);
 
   useEffect(() => {
     if (!heroRef.current) return;
@@ -94,9 +101,9 @@ export default function Hero() {
               priority
               className={styles.avatarImg}
               onError={() => {
-                // Fallback to jpeg if png cutout not yet added
-                if (imgSrc !== "/images/yopa.jpeg") {
-                  setImgSrc("/images/yopa.jpeg");
+                const fallback = personal?.fallbackAvatar || "/images/yopa.jpeg";
+                if (imgSrc !== fallback) {
+                  setImgSrc(fallback);
                 }
               }}
             />

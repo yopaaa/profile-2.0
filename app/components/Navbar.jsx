@@ -41,7 +41,7 @@ export default function Navbar() {
 
       <Link href="/" className={styles.logo}>
         <span className={styles.logoDot} />
-        yopa
+        Linus
       </Link>
 
       <ul className={styles.links}>

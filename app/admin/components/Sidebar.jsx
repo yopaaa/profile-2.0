@@ -81,7 +81,7 @@ export default function Sidebar() {
           <Link href="/" className={styles.brand}>
             <span className={styles.brandDot} />
             <span className={styles.brandText}>
-              yopa<span className={styles.badge}>CMS</span>
+              Linus<span className={styles.badge}>CMS</span>
             </span>
           </Link>
 

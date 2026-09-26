@@ -20,6 +20,7 @@ import {
   CheckCircle2,
   AlertTriangle,
   Pin,
+  Upload,
 } from "lucide-react";
 import styles from "./page.module.css";
 
@@ -48,6 +49,7 @@ function AdminContent() {
   const [statusMessage, setStatusMessage] = useState(null);
   const [rawJsonText, setRawJsonText] = useState("");
   const [jsonError, setJsonError] = useState("");
+  const [uploadingTarget, setUploadingTarget] = useState(null);
 
   // Sync tab with URL parameter
   useEffect(() => {
@@ -125,6 +127,44 @@ function AdminContent() {
   };
 
   const hasUnsavedChanges = initialData && JSON.stringify(data) !== initialData;
+
+  // --- Image Upload Handler ---
+  const handleImageUpload = async (e, targetType, projectIndex = null) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const targetId = projectIndex !== null ? `project-${projectIndex}` : targetType;
+    setUploadingTarget(targetId);
+
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("folder", projectIndex !== null ? "projects" : "personal");
+
+      const res = await fetch("/api/admin/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await res.json();
+      if (!res.ok) {
+        throw new Error(result.message || "Gagal mengunggah gambar");
+      }
+
+      if (projectIndex !== null) {
+        updateProject(projectIndex, "image", result.url);
+      } else {
+        updatePersonal(targetType, result.url);
+      }
+
+      showStatus("success", `✓ Gambar berhasil disimpan ke ${result.url}`);
+    } catch (err) {
+      showStatus("error", err.message || "Terjadi kesalahan saat upload gambar");
+    } finally {
+      setUploadingTarget(null);
+      e.target.value = "";
+    }
+  };
 
   // --- Handlers for Personal ---
   const updatePersonal = (field, value) => {
@@ -413,23 +453,92 @@ function AdminContent() {
                 />
               </div>
 
-              <div className={styles.fieldGroup}>
-                <label>Path Foto Avatar (PNG Transparan)</label>
-                <input
-                  type="text"
-                  value={data.personal.avatar || ""}
-                  onChange={(e) => updatePersonal("avatar", e.target.value)}
-                />
-                <span className={styles.fieldHint}>Contoh: /images/yopa.png</span>
+              <div className={styles.uploadFieldWrap}>
+                <label>Foto Avatar Utama (PNG Transparan)</label>
+                <div className={styles.uploadRow}>
+                  <div className={styles.uploadPreviewBox}>
+                    {data.personal.avatar ? (
+                      <img
+                        src={data.personal.avatar}
+                        alt="Avatar Preview"
+                        className={styles.uploadPreviewImg}
+                        onError={(e) => {
+                          e.currentTarget.style.display = "none";
+                        }}
+                      />
+                    ) : (
+                      <span className={styles.uploadPreviewEmpty}>No Image</span>
+                    )}
+                  </div>
+                  <div className={styles.uploadInputWrap}>
+                    <input
+                      type="text"
+                      placeholder="/images/yopa.png"
+                      value={data.personal.avatar || ""}
+                      onChange={(e) => updatePersonal("avatar", e.target.value)}
+                    />
+                    <label
+                      className={`${styles.uploadBtn} ${
+                        uploadingTarget === "avatar" ? styles.uploadBtnDisabled : ""
+                      }`}
+                    >
+                      <Upload size={13} />
+                      <span>{uploadingTarget === "avatar" ? "Mengunggah..." : "Upload Foto Avatar"}</span>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className={styles.hiddenFileInput}
+                        disabled={uploadingTarget === "avatar"}
+                        onChange={(e) => handleImageUpload(e, "avatar")}
+                      />
+                    </label>
+                  </div>
+                </div>
+                <span className={styles.fieldHint}>File disimpan otomatis ke /public/images/</span>
               </div>
 
-              <div className={styles.fieldGroup}>
-                <label>Path Foto Fallback (JPEG)</label>
-                <input
-                  type="text"
-                  value={data.personal.fallbackAvatar || ""}
-                  onChange={(e) => updatePersonal("fallbackAvatar", e.target.value)}
-                />
+              <div className={styles.uploadFieldWrap}>
+                <label>Foto Fallback (JPEG)</label>
+                <div className={styles.uploadRow}>
+                  <div className={styles.uploadPreviewBox}>
+                    {data.personal.fallbackAvatar ? (
+                      <img
+                        src={data.personal.fallbackAvatar}
+                        alt="Fallback Preview"
+                        className={styles.uploadPreviewImg}
+                        onError={(e) => {
+                          e.currentTarget.style.display = "none";
+                        }}
+                      />
+                    ) : (
+                      <span className={styles.uploadPreviewEmpty}>No Image</span>
+                    )}
+                  </div>
+                  <div className={styles.uploadInputWrap}>
+                    <input
+                      type="text"
+                      placeholder="/images/yopa.jpeg"
+                      value={data.personal.fallbackAvatar || ""}
+                      onChange={(e) => updatePersonal("fallbackAvatar", e.target.value)}
+                    />
+                    <label
+                      className={`${styles.uploadBtn} ${
+                        uploadingTarget === "fallbackAvatar" ? styles.uploadBtnDisabled : ""
+                      }`}
+                    >
+                      <Upload size={13} />
+                      <span>{uploadingTarget === "fallbackAvatar" ? "Mengunggah..." : "Upload Foto Fallback"}</span>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className={styles.hiddenFileInput}
+                        disabled={uploadingTarget === "fallbackAvatar"}
+                        onChange={(e) => handleImageUpload(e, "fallbackAvatar")}
+                      />
+                    </label>
+                  </div>
+                </div>
+                <span className={styles.fieldHint}>File disimpan otomatis ke /public/images/</span>
               </div>
             </div>
 
@@ -715,7 +824,7 @@ function AdminContent() {
                     />
                   </div>
 
-                  <div className={styles.formGrid3}>
+                  <div className={styles.formGrid2}>
                     <div className={styles.fieldGroup}>
                       <label>Teks Display URL</label>
                       <input
@@ -733,15 +842,56 @@ function AdminContent() {
                         onChange={(e) => updateProject(index, "href", e.target.value)}
                       />
                     </div>
+                  </div>
 
-                    <div className={styles.fieldGroup}>
-                      <label>Path Gambar Preview</label>
-                      <input
-                        type="text"
-                        value={proj.image || ""}
-                        onChange={(e) => updateProject(index, "image", e.target.value)}
-                      />
-                      <span className={styles.fieldHint}>/images/projects/...</span>
+                  <div className={styles.uploadFieldWrap} style={{ marginTop: "12px" }}>
+                    <label>Gambar Preview Proyek (16:9 / 16:10)</label>
+                    <div className={styles.uploadRow}>
+                      <div className={styles.uploadPreviewBox} style={{ width: "96px", height: "60px" }}>
+                        {proj.image ? (
+                          <img
+                            src={proj.image}
+                            alt="Project Preview"
+                            className={styles.uploadPreviewImg}
+                            onError={(e) => {
+                              e.currentTarget.style.display = "none";
+                            }}
+                          />
+                        ) : (
+                          <span className={styles.uploadPreviewEmpty}>No Preview</span>
+                        )}
+                      </div>
+                      <div className={styles.uploadInputWrap}>
+                        <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+                          <input
+                            type="text"
+                            placeholder="/images/projects/nama-proyek.png"
+                            value={proj.image || ""}
+                            onChange={(e) => updateProject(index, "image", e.target.value)}
+                            style={{ flex: 1 }}
+                          />
+                          <label
+                            className={`${styles.uploadBtn} ${
+                              uploadingTarget === `project-${index}` ? styles.uploadBtnDisabled : ""
+                            }`}
+                          >
+                            <Upload size={13} />
+                            <span>
+                              {uploadingTarget === `project-${index}`
+                                ? "Mengunggah..."
+                                : "Upload Gambar"}
+                            </span>
+                            <input
+                              type="file"
+                              accept="image/*"
+                              className={styles.hiddenFileInput}
+                              disabled={uploadingTarget === `project-${index}`}
+                              onChange={(e) => handleImageUpload(e, "project", index)}
+                            />
+                          </label>
+                        </div>
+                        <span className={styles.fieldHint}>Tersimpan otomatis ke /public/images/projects/</span>
+                      </div>
                     </div>
                   </div>
 

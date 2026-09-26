@@ -16,7 +16,7 @@ export default function Footer() {
         <div className={styles.left}>
           <span className={styles.logo}>
             <span className={styles.logoDot} />
-            {personal.shortName.toLowerCase()}
+            Linus
           </span>
           <p className={styles.tagline}>
             Building things for the web.<br />

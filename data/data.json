@@ -9,8 +9,8 @@
     "status": "Available for work",
     "bio": "Membangun produk digital web, mobile, dan IoT end-to-end — dari arsitektur, development, hingga hosting dan maintenance — berbasis di Bangka Belitung, Indonesia.",
     "aboutBio": "Halo, saya Yopa Full Stack Developer berbasis di Bangka Belitung dengan pengalaman langsung mengembangkan produk web, mobile, dan IoT dari nol hingga deployment. Terbiasa bekerja lintas stack dengan Next.js, React Native, dan embedded systems (ESP8266/ESP32), serta terdorong untuk mengubah ide menjadi produk nyata seperti yang tercermin dari perjalanan mendirikan nlabs.id.",
-    "avatar": "/images/yopa.png",
-    "fallbackAvatar": "/images/yopa.jpeg"
+    "avatar": "/images/yopa2.png",
+    "fallbackAvatar": "/images/yopa2.png"
   },
   "hero": {
     "greeting": "Halo, saya",
@@ -165,9 +165,9 @@
       "tag": "Website",
       "name": "Pantai Penyusuk",
       "desc": "Website untuk Pantai Penyusuk, destinasi pantai di Bangka, menampilkan informasi dan visual bagi pengunjung guna mempromosikan pariwisata lokal Bangka Belitung.",
-      "url": "",
-      "href": "",
-      "image": "/images/projects/pantai-penyusuk.png",
+      "url": "https://penyusuk.nlabs.id/",
+      "href": "https://penyusuk.nlabs.id/developer",
+      "image": "/images/projects/img_1790438068506_Screenshot_From_2026-09-26_22-.png",
       "pinned": true
     },
     {
@@ -175,9 +175,9 @@
       "tag": "Web Application",
       "name": "MBG Simulator",
       "desc": "Aplikasi simulator/kalkulator terkait program Makan Bergizi Gratis (MBG) Indonesia, dirancang untuk memvisualisasikan dan mengestimasi angka-angka terkait program dengan antarmuka yang mudah digunakan.",
-      "url": "",
-      "href": "",
-      "image": "/images/projects/mbg-simulator.png",
+      "url": "https://mbg.nlabs.id/",
+      "href": "https://mbg.nlabs.id/",
+      "image": "/images/projects/img_1790438145410_Screenshot_From_2026-09-26_22-.png",
       "pinned": true
     },
     {
@@ -235,7 +235,7 @@
   ],
   "seo": {
     "siteUrl": "https://yopa.nlabs.id",
-    "title": "Yopa Pitra Ramadhani — Full Stack Developer",
+    "title": "Yopa Pitra Ramadhani - Full Stack Developer",
     "description": "Portofolio profesional Yopa Pitra Ramadhani, Full Stack Developer berbasis di Bangka Belitung, Indonesia. Spesialis Next.js, React, Node.js, dan pengembangan produk web, mobile, dan IoT end-to-end.",
     "keywords": [
       "Yopa Pitra Ramadhani",
@@ -249,6 +249,6 @@
       "Web Developer Portfolio"
     ],
     "author": "Yopa Pitra Ramadhani",
-    "ogImage": "/images/yopa.jpeg"
+    "ogImage": "/images/yopa2.png"
   }
 }
